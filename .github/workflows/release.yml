@@ -20,7 +20,7 @@ jobs:
         run: |
           yarn install --pure-lockfile
           yarn build
-          npx @grafana/toolkit plugin:sign
-          mv dist/ auxmoney-waterfall-plugin
-          zip auxmoney-waterfall-plugin-0.0.1.zip auxmoney-waterfall-plugin -r
-          curl -F "file=@auxmoney-waterfall-plugin-0.0.1.zip" https://file.io
+          npx @grafana/toolkit plugin:sign --rootUrls https://monitoring.auxaws.de/,http://localhost:3000/
+          mv dist/ auxmoney-waterfall-panel
+          zip auxmoney-waterfall-panel-0.0.1.zip auxmoney-waterfall-panel -r
+          curl -F "file=@auxmoney-waterfall-panel-0.0.1.zip" https://file.io

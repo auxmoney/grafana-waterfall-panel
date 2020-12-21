@@ -5,3 +5,8 @@ running in parallel in a build pipeline or a series of HTTP requests.
 
 # Installation
 
+
+
+# Credits
+
+* Icon made from <a href="http://www.onlinewebfonts.com/icon">Icon Fonts</a> is licensed by CC BY 3.0
