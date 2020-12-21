@@ -14,4 +14,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - run: yarn install
+      - name: build and sign
+        env:
+          GRAFANA_API_KEY: ${{ secrets.GRAFANA_API_KEY }}
+        run: |
+          yarn install --pure-lockfile
+          yarn build
+          npx @grafana/toolkit plugin:sign
+          mv dist/ auxmoney-waterfall-plugin
+          zip auxmoney-waterfall-plugin-0.0.1.zip auxmoney-waterfall-plugin -r
+          curl -F "file=@auxmoney-waterfall-plugin-0.0.1.zip" https://file.io
