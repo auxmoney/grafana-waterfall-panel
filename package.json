@@ -1,0 +1,31 @@
+{
+  "name": "auxmoney-waterfall-panel",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A waterfall panel",
+  "scripts": {
+    "build": "grafana-toolkit plugin:build",
+    "test": "grafana-toolkit plugin:test",
+    "dev": "grafana-toolkit plugin:dev",
+    "watch": "grafana-toolkit plugin:dev --watch"
+  },
+  "repository": "github:auxmoney/grafana-waterfall-panel",
+  "author": "auxmoney.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/auxmoney/grafana-waterfall-panel/issues",
+    "email": "opensource@auxmoney.com"
+  },
+  "devDependencies": {
+    "@grafana/data": "^7.0.0",
+    "@grafana/toolkit": "^7.0.0",
+    "@grafana/ui": "^7.0.0",
+    "emotion": "10.0.27"
+  },
+  "engines": {
+    "node": ">=12 <13"
+  },
+  "dependencies": {
+    "moment": "^2.29.1"
+  }
+}
