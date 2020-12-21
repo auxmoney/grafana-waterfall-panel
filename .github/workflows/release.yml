@@ -1,15 +1,17 @@
-name: Node.js CI
+name: release
 
 on:
   push:
     branches:
-      - '*' # TODO: fix this
+      - 'main'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_TOKEN }}
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
@@ -22,5 +24,33 @@ jobs:
           yarn build
           npx @grafana/toolkit plugin:sign --rootUrls https://monitoring.auxaws.de/,http://localhost:3000/
           mv dist/ auxmoney-waterfall-panel
-          zip auxmoney-waterfall-panel-0.0.1.zip auxmoney-waterfall-panel -r
-          curl -F "file=@auxmoney-waterfall-panel-0.0.1.zip" https://file.io
+          zip auxmoney-waterfall-panel-dist.zip auxmoney-waterfall-panel -r
+      - name: semantic release
+        uses: cycjimmy/semantic-release-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
+            conventional-changelog-conventionalcommits
+      - name: fetch latest release
+        id: fetch_release
+        uses: thebritican/fetch-latest-release@v2.0.0
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+      - name: calculate asset name
+        id: vars
+        run: |
+          TAG_NAME=${{ steps.fetch_release.outputs.tag_name }}
+          echo ::set-output name=asset_name::auxmoney-waterfall-panel-${TAG_NAME:1}.zip
+      - name: upload release asset
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          upload_url: ${{ steps.fetch_release.outputs.upload_url }}
+          asset_path: auxmoney-waterfall-panel-dist.zip
+          asset_name: ${{ steps.vars.outputs.asset_name }}
+          asset_content_type: application/zip
+

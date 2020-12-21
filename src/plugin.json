@@ -1,6 +1,6 @@
 {
   "type": "panel",
-  "name": "grafana-waterfall-panel",
+  "name": "auxmoney-waterfall-panel",
   "id": "auxmoney-waterfall-panel",
   "info": {
     "description": "A waterfall panel",
@@ -19,11 +19,11 @@
     "links": [
       {
         "name": "Website",
-        "url": "https://github.com/grafana/simple-react-panel"
+        "url": "https://github.com/auxmoney/grafana-waterfall-panel"
       },
       {
         "name": "License",
-        "url": "https://github.com/grafana/simple-react-panel/blob/master/LICENSE"
+        "url": "https://github.com/auxmoney/grafana-waterfall-panel/blob/master/LICENSE"
       }
     ],
     "screenshots": [],
