@@ -9,3 +9,7 @@
 - start local grafana `docker run -d -p 3000:3000 -v "$(pwd)":/var/lib/grafana/plugins/grafana-waterfall-panel --name=grafana grafana/grafana:7.0.0`
 - login in your browser on localhost:3000 (default password and user is _admin_)
 - add suitable datasource
+
+
+# pre-publish flight check
+Use the online [validator](https://grafana-plugins-web-vgmmyppaka-lz.a.run.app/) to check your changes. 
