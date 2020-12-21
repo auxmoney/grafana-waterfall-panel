@@ -5,7 +5,8 @@ running in parallel in a build pipeline or a series of HTTP requests.
 
 # Installation
 
-
+# Documentation
+-  [Development guide](https://github.com/auxmoney/grafana-waterfall-panel/blob/main/docs/DEVELOPMENT.md)
 
 # Credits
 

@@ -1,9 +1,9 @@
 {
   "type": "panel",
-  "name": "auxmoney-waterfall-panel",
+  "name": "Waterfall Panel",
   "id": "auxmoney-waterfall-panel",
   "info": {
-    "description": "A waterfall panel",
+    "description": "A waterfall panel for a single time-series",
     "author": {
       "name": "auxmoney.com",
       "url": "https://github.com/auxmoney"
@@ -26,7 +26,12 @@
         "url": "https://github.com/auxmoney/grafana-waterfall-panel/blob/main/LICENSE"
       }
     ],
-    "screenshots": [],
+    "screenshots": [
+      {
+        "name": "Waterfall example",
+        "path": "img/auxmoney-waterfall-panel.png"
+      }
+    ],
     "version": "%VERSION%",
     "updated": "%TODAY%"
   },
