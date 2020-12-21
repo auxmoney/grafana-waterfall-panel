@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import moment from 'moment'; // eslint-disable-line no-restricted-imports
 import { PanelProps } from '@grafana/data';
 import { SimpleOptions } from 'types';
 import { css, cx } from 'emotion';
@@ -17,7 +17,9 @@ class Bar {
     this.time = moment(time).utc();
     this.value = moment.duration(value, valueUnit);
     this.name = name;
-    this.endTime = moment(time).utc().add(this.value);
+    this.endTime = moment(time)
+      .utc()
+      .add(this.value);
   }
 }
 
@@ -37,13 +39,13 @@ export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) =
       break;
   }
 
-  if (data.series.length != 1) {
+  if (data.series.length !== 1) {
     throw new Error('You need exactly 1 time series for this plugin to work.');
   }
 
   const series = data.series[0];
 
-  if (series.fields.filter(field => ['Time', 'value'].includes(field?.name)).length != 2) {
+  if (series.fields.filter(field => ['Time', 'value'].includes(field?.name)).length !== 2) {
     throw new Error('You need at least the fields "Time" and "value" for this plugin to work.');
   }
 
@@ -53,10 +55,10 @@ export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) =
 
   const bars = [];
   for (let i = 0; i < series.fields[0].values.length; i++) {
-    bars.push(new Bar(time.values.get(i), values.values.get(i), names ? names.values.get(i) : '', options.valueUnit))
+    bars.push(new Bar(time.values.get(i), values.values.get(i), names ? names.values.get(i) : '', options.valueUnit));
   }
 
-  const endTime = bars.map(bar => bar.endTime.unix()).reduce((a, b) => a > b ? a : b);
+  const endTime = bars.map(bar => bar.endTime.unix()).reduce((a, b) => (a > b ? a : b));
 
   bars.sort((a: Bar, b: Bar) => b.time.milliseconds() - a.time.milliseconds());
 
@@ -84,11 +86,32 @@ export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) =
         <g>
           {bars.map((bar, index) => {
             const step = height / bars.length - 2;
-            const label = options.showInlineBarLabels ? <text x={(bar.time.unix() - baseTime) / secondsFrame * width} height={step} y={index * (step + 2) + step - 2} fontSize={`${Math.floor(step)}`} fill='#fff'>{bar.name} ({bar.value.asSeconds().toFixed(1)} sec)</text> : undefined
-            return <g fill={fillColor}>
-              <rect x={(bar.time.unix() - baseTime) / secondsFrame * width} height={step} y={index * (step + 2)} width={bar.value.asSeconds() / secondsFrame * width} stroke={color} strokeWidth='1' />
-              {label}
-            </g>;
+            const label = options.showInlineBarLabels ? (
+              <text
+                x={((bar.time.unix() - baseTime) / secondsFrame) * width}
+                height={step}
+                y={index * (step + 2) + step - 2}
+                fontSize={`${Math.floor(step)}`}
+                fill="#fff"
+              >
+                {bar.name} ({bar.value.asSeconds().toFixed(1)} sec)
+              </text>
+            ) : (
+              undefined
+            );
+            return (
+              <g fill={fillColor}>
+                <rect
+                  x={((bar.time.unix() - baseTime) / secondsFrame) * width}
+                  height={step}
+                  y={index * (step + 2)}
+                  width={(bar.value.asSeconds() / secondsFrame) * width}
+                  stroke={color}
+                  strokeWidth="1"
+                />
+                {label}
+              </g>
+            );
           })}
         </g>
       </svg>

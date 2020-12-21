@@ -1,4 +1,4 @@
-import moment from "moment";
+import moment from 'moment'; // eslint-disable-line no-restricted-imports
 
 type SeriesSize = 'sm' | 'md' | 'lg';
 

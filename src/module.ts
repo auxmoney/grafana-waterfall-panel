@@ -46,7 +46,7 @@ export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOption
             label: 'Green',
           },
         ],
-      }
+      },
     })
     .addRadio({
       path: 'valueUnit',
@@ -59,6 +59,6 @@ export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOption
             label: 'seconds (s)',
           },
         ],
-      }
+      },
     });
 });
