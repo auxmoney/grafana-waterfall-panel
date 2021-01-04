@@ -7,6 +7,7 @@ type CircleColor = 'red' | 'green' | 'blue';
 export interface SimpleOptions {
   text: string;
   showInlineBarLabels: boolean;
+  showDurationInLabels: boolean;
   seriesCountSize: SeriesSize;
   color: CircleColor;
   valueUnit: moment.unitOfTime.Base;
