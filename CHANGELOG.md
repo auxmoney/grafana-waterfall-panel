@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/auxmoney/grafana-waterfall-panel/compare/v1.0.2...v1.0.3) (2021-01-04)
+
+
+### Bug Fixes
+
+* polishing for first use ([#5](https://github.com/auxmoney/grafana-waterfall-panel/issues/5)) ([76b4094](https://github.com/auxmoney/grafana-waterfall-panel/commit/76b40946fef8c3819812ee9a8ceb5746065893d4))
+
 ## [1.0.2](https://github.com/auxmoney/grafana-waterfall-panel/compare/v1.0.1...v1.0.2) (2021-01-04)
 
 
