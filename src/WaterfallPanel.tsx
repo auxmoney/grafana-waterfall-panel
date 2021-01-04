@@ -1,29 +1,13 @@
 import React from 'react';
-import moment from 'moment'; // eslint-disable-line no-restricted-imports
 import { PanelProps } from '@grafana/data';
 import { SimpleOptions } from 'types';
 import { css, cx } from 'emotion';
 import { stylesFactory, useTheme } from '@grafana/ui';
+import { Bar } from './Bar';
 
 interface Props extends PanelProps<SimpleOptions> {}
 
-class Bar {
-  time: moment.Moment;
-  endTime: moment.Moment;
-  value: moment.Duration;
-  name: string;
-
-  constructor(time: number, value: number, name: string, valueUnit: moment.unitOfTime.Base) {
-    this.time = moment(time).utc();
-    this.value = moment.duration(value, valueUnit);
-    this.name = name;
-    this.endTime = moment(time)
-      .utc()
-      .add(this.value);
-  }
-}
-
-export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) => {
+export const WaterfallPanel: React.FC<Props> = ({ options, data, width, height }) => {
   const theme = useTheme();
   const styles = getStyles();
   let color: string;
@@ -37,6 +21,14 @@ export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) =
       color = theme.palette.greenBase;
       fillColor = theme.palette.greenShade;
       break;
+    case 'blue':
+      color = theme.palette.blue95;
+      fillColor = theme.palette.blue80;
+      break;
+  }
+
+  if (data.series.length === 0) {
+    throw new Error('Your query delivered no data.');
   }
 
   if (data.series.length !== 1) {
@@ -92,9 +84,10 @@ export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) =
                 height={step}
                 y={index * (step + 2) + step - 2}
                 fontSize={`${Math.floor(step)}`}
-                fill="#fff"
+                fill={theme.colors.text}
               >
-                {bar.name} ({bar.value.asSeconds().toFixed(1)} sec)
+                {bar.name}{' '}
+                {options.showDurationInLabels ? `(${bar.value.asSeconds().toFixed(1)} ${options.valueUnit})` : ''}
               </text>
             ) : (
               undefined

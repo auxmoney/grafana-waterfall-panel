@@ -1,34 +1,18 @@
 import { PanelPlugin } from '@grafana/data';
 import { SimpleOptions } from './types';
-import { SimplePanel } from './SimplePanel';
+import { WaterfallPanel } from './WaterfallPanel';
 
-export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOptions(builder => {
+export const plugin = new PanelPlugin<SimpleOptions>(WaterfallPanel).setPanelOptions(builder => {
   return builder
     .addBooleanSwitch({
       path: 'showInlineBarLabels',
       name: 'Show inline bar labels',
       defaultValue: false,
     })
-    .addRadio({
-      path: 'seriesCountSize',
-      defaultValue: 'sm',
-      name: 'Series counter size',
-      settings: {
-        options: [
-          {
-            value: 'sm',
-            label: 'Small',
-          },
-          {
-            value: 'md',
-            label: 'Medium',
-          },
-          {
-            value: 'lg',
-            label: 'Large',
-          },
-        ],
-      },
+    .addBooleanSwitch({
+      path: 'showDurationInLabels',
+      name: 'Show duration in bar labels',
+      defaultValue: true,
       showIf: config => config.showInlineBarLabels,
     })
     .addRadio({
@@ -44,6 +28,10 @@ export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOption
           {
             value: 'green',
             label: 'Green',
+          },
+          {
+            value: 'blue',
+            label: 'Blue',
           },
         ],
       },
