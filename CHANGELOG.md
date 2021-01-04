@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/auxmoney/grafana-waterfall-panel/compare/v1.0.1...v1.0.2) (2021-01-04)
+
+
+### Bug Fixes
+
+* respect ci skip within release workflow ([#4](https://github.com/auxmoney/grafana-waterfall-panel/issues/4)) ([f273df4](https://github.com/auxmoney/grafana-waterfall-panel/commit/f273df46052286a27821c5facdd88b8fd598212e))
+
 ## [1.0.1](https://github.com/auxmoney/grafana-waterfall-panel/compare/v1.0.0...v1.0.1) (2020-12-21)
 
 
