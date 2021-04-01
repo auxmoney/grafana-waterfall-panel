@@ -1,5 +1,5 @@
 import React from 'react';
-import { PanelProps } from '@grafana/data';
+import {FieldType, PanelProps} from '@grafana/data';
 import { SimpleOptions } from 'types';
 import { css, cx } from 'emotion';
 import { stylesFactory, useTheme } from '@grafana/ui';
@@ -41,9 +41,9 @@ export const WaterfallPanel: React.FC<Props> = ({ options, data, width, height }
     throw new Error('You need at least the fields "Time" and "value" for this plugin to work.');
   }
 
-  const time = series.fields.filter(field => field.name === 'Time')[0];
-  const values = series.fields.filter(field => field.name === 'value')[0];
-  const names = series.fields.filter(field => field.name === 'name')[0];
+  const time = series.fields.filter(field => field.type === FieldType.time)[0];
+  const values = series.fields.filter(field => field.type === FieldType.number)[0];
+  const names = series.fields.filter(field => field.type === FieldType.string)[0];
 
   const bars = [];
   for (let i = 0; i < series.fields[0].values.length; i++) {
