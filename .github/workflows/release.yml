@@ -23,7 +23,7 @@ jobs:
         run: |
           yarn install --pure-lockfile
           yarn build
-          npx @grafana/toolkit plugin:sign --rootUrls https://monitoring.auxaws.de/,http://localhost:3000/
+          npx @grafana/toolkit plugin:sign
           mv dist/ auxmoney-waterfall-panel
           zip auxmoney-waterfall-panel-dist.zip auxmoney-waterfall-panel -r
       - name: semantic release

@@ -13,3 +13,10 @@
 
 # pre-publish flight check
 Use the online [validator](https://grafana-plugins-web-vgmmyppaka-lz.a.run.app/) to check your changes. 
+
+# releasing, signing and listing
+
+Releasing and signing happens automatically after a merge into `main` through Github workflows.
+
+A separate PR must be created to list the newest version in the official [Grafana plugin repository](https://github.com/grafana/grafana-plugin-repository/).
+Simply add a new `version` under the `versions` array in the plugin object identified by `"id": "auxmoney-waterfall-panel"`.
