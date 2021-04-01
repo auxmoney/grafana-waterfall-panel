@@ -1,3 +1,11 @@
+## [1.0.4](https://github.com/auxmoney/grafana-waterfall-panel/compare/v1.0.3...v1.0.4) (2021-04-01)
+
+
+### Bug Fixes
+
+* incorporate PR feedback for grafana/grafana-plugin-repository[#863](https://github.com/auxmoney/grafana-waterfall-panel/issues/863) ([#6](https://github.com/auxmoney/grafana-waterfall-panel/issues/6)) ([2e964ea](https://github.com/auxmoney/grafana-waterfall-panel/commit/2e964eac08c71b109a064761e682a2ea8dddc27e))
+* linting error ([#7](https://github.com/auxmoney/grafana-waterfall-panel/issues/7)) ([58cb9c7](https://github.com/auxmoney/grafana-waterfall-panel/commit/58cb9c770614e5acbe9f4afc949dca5a83a6a1f5))
+
 ## [1.0.3](https://github.com/auxmoney/grafana-waterfall-panel/compare/v1.0.2...v1.0.3) (2021-01-04)
 
 
