@@ -1,5 +1,5 @@
 import React from 'react';
-import {FieldType, PanelProps} from '@grafana/data';
+import { FieldType, PanelProps } from '@grafana/data';
 import { SimpleOptions } from 'types';
 import { css, cx } from 'emotion';
 import { stylesFactory, useTheme } from '@grafana/ui';
