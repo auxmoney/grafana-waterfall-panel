@@ -2,7 +2,7 @@ import { PanelPlugin } from '@grafana/data';
 import { SimpleOptions } from './types';
 import { WaterfallPanel } from './WaterfallPanel';
 
-export const plugin = new PanelPlugin<SimpleOptions>(WaterfallPanel).setPanelOptions(builder => {
+export const plugin = new PanelPlugin<SimpleOptions>(WaterfallPanel).setPanelOptions((builder) => {
   return builder
     .addBooleanSwitch({
       path: 'showInlineBarLabels',
@@ -13,7 +13,7 @@ export const plugin = new PanelPlugin<SimpleOptions>(WaterfallPanel).setPanelOpt
       path: 'showDurationInLabels',
       name: 'Show duration in bar labels',
       defaultValue: true,
-      showIf: config => config.showInlineBarLabels,
+      showIf: (config) => config.showInlineBarLabels,
     })
     .addRadio({
       path: 'color',

@@ -17,15 +17,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: build and sign
-        env:
-          GRAFANA_API_KEY: ${{ secrets.GRAFANA_API_KEY }}
-        run: |
-          yarn install --pure-lockfile
-          yarn build
-          npx @grafana/toolkit plugin:sign
-          mv dist/ auxmoney-waterfall-panel
-          zip auxmoney-waterfall-panel-dist.zip auxmoney-waterfall-panel -r
       - name: semantic release
         uses: cycjimmy/semantic-release-action@v2
         env:
@@ -35,6 +26,15 @@ jobs:
             @semantic-release/changelog
             @semantic-release/git
             conventional-changelog-conventionalcommits
+      - name: build and sign
+        env:
+          GRAFANA_API_KEY: ${{ secrets.GRAFANA_API_KEY }}
+        run: |
+          yarn install --pure-lockfile
+          yarn build
+          npx @grafana/toolkit plugin:sign
+          mv dist/ auxmoney-waterfall-panel
+          zip auxmoney-waterfall-panel-dist.zip auxmoney-waterfall-panel -r
       - name: fetch latest release
         id: fetch_release
         uses: thebritican/fetch-latest-release@v2.0.0

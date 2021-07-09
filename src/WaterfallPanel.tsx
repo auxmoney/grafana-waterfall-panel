@@ -37,20 +37,20 @@ export const WaterfallPanel: React.FC<Props> = ({ options, data, width, height }
 
   const series = data.series[0];
 
-  if (series.fields.filter(field => ['Time', 'value'].includes(field?.name)).length !== 2) {
+  if (series.fields.filter((field) => ['Time', 'value'].includes(field?.name)).length !== 2) {
     throw new Error('You need at least the fields "Time" and "value" for this plugin to work.');
   }
 
-  const time = series.fields.filter(field => field.type === FieldType.time)[0];
-  const values = series.fields.filter(field => field.type === FieldType.number)[0];
-  const names = series.fields.filter(field => field.type === FieldType.string)[0];
+  const time = series.fields.filter((field) => field.type === FieldType.time)[0];
+  const values = series.fields.filter((field) => field.type === FieldType.number)[0];
+  const names = series.fields.filter((field) => field.type === FieldType.string)[0];
 
   const bars = [];
   for (let i = 0; i < series.fields[0].values.length; i++) {
     bars.push(new Bar(time.values.get(i), values.values.get(i), names ? names.values.get(i) : '', options.valueUnit));
   }
 
-  const endTime = bars.map(bar => bar.endTime.unix()).reduce((a, b) => (a > b ? a : b));
+  const endTime = bars.map((bar) => bar.endTime.unix()).reduce((a, b) => (a > b ? a : b));
 
   bars.sort((a: Bar, b: Bar) => b.time.milliseconds() - a.time.milliseconds());
 
@@ -89,11 +89,9 @@ export const WaterfallPanel: React.FC<Props> = ({ options, data, width, height }
                 {bar.name}{' '}
                 {options.showDurationInLabels ? `(${bar.value.asSeconds().toFixed(1)} ${options.valueUnit})` : ''}
               </text>
-            ) : (
-              undefined
-            );
+            ) : undefined;
             return (
-              <g fill={fillColor}>
+              <g fill={fillColor} key={index}>
                 <rect
                   x={((bar.time.unix() - baseTime) / secondsFrame) * width}
                   height={step}

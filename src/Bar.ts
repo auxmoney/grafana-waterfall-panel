@@ -10,8 +10,6 @@ export class Bar {
     this.time = moment(time).utc();
     this.value = moment.duration(value, valueUnit);
     this.name = name;
-    this.endTime = moment(time)
-      .utc()
-      .add(this.value);
+    this.endTime = moment(time).utc().add(this.value);
   }
 }
