@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/auxmoney/grafana-waterfall-panel/compare/v1.0.4...v1.0.5) (2021-07-09)
+
+
+### Bug Fixes
+
+* add grafana 8 support ([#10](https://github.com/auxmoney/grafana-waterfall-panel/issues/10)) ([a74b6d4](https://github.com/auxmoney/grafana-waterfall-panel/commit/a74b6d4bbd5e032f5ecb29d874c63203ba5f5faf))
+
 ## [1.0.4](https://github.com/auxmoney/grafana-waterfall-panel/compare/v1.0.3...v1.0.4) (2021-04-01)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "auxmoney-waterfall-panel",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "description": "A waterfall panel",
   "scripts": {
