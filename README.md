@@ -19,6 +19,8 @@ The panel can only handle a single time series, and the time series can consist 
 | number     | yes      | duration in seconds |
 | string     | no       | name                |
 
+Make sure you select the fields of the time series as a "Table"!
+
 The time frame will be calculated automatically and creates the panel frame. Each tuple will be represented by a bar in
 the panel, starting at its "starting point" and taking up space relative to its "duration".
 
