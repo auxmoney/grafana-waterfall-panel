@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/auxmoney/grafana-waterfall-panel/compare/v1.0.5...v1.0.6) (2021-07-12)
+
+
+### Bug Fixes
+
+* plugin error message and plugin data check ([#13](https://github.com/auxmoney/grafana-waterfall-panel/issues/13)) ([bfb0555](https://github.com/auxmoney/grafana-waterfall-panel/commit/bfb055508158026f8a1df1d30d10aea284b5c2a3))
+
 ## [1.0.5](https://github.com/auxmoney/grafana-waterfall-panel/compare/v1.0.4...v1.0.5) (2021-07-09)
 
 
