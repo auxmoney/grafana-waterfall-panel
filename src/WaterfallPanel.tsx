@@ -37,8 +37,8 @@ export const WaterfallPanel: React.FC<Props> = ({ options, data, width, height }
 
   const series = data.series[0];
 
-  if (series.fields.filter((field) => ['Time', 'value'].includes(field?.name)).length !== 2) {
-    throw new Error('You need at least the fields "Time" and "value" for this plugin to work.');
+  if (series.fields.filter((field) => [FieldType.time, FieldType.number].includes(field?.type)).length !== 2) {
+    throw new Error('You need at least a field of type "time" and a field of type "number" for this plugin to work.');
   }
 
   const time = series.fields.filter((field) => field.type === FieldType.time)[0];
