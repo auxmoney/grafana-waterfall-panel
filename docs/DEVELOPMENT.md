@@ -1,4 +1,5 @@
 # Local Development
+
 - checkout from github
 - install [nodejs 12](https://nodejs.org/en/download/)
 - install [yarn](https://classic.yarnpkg.com/en/docs/install)
@@ -6,13 +7,15 @@
 - run `yarn install`
 - run `yarn build`
 - run `yarn run watch`
-- start local grafana `docker run -d -p 3000:3000 -v "$(pwd)":/var/lib/grafana/plugins/grafana-waterfall-panel --name=grafana grafana/grafana:7.0.0`
+- start local grafana `docker run -d -p 3000:3000 -v "$(pwd)":/var/lib/grafana/plugins/grafana-waterfall-panel --name=grafana grafana/grafana`
+  - for grafana 8, you need to add `allow_loading_unsigned_plugins = auxmoney-waterfall-panel` to your `grafana.ini`
 - login in your browser on localhost:3000 (default password and user is _admin_)
 - add suitable datasource
 
 
 # pre-publish flight check
-Use the online [validator](https://grafana-plugins-web-vgmmyppaka-lz.a.run.app/) to check your changes. 
+
+Use [plugin validator](https://github.com/grafana/plugin-validator) to check your changes. 
 
 # releasing, signing and listing
 
